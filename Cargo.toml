@@ -1,0 +1,12 @@
+[package]
+name = "main"
+version = "0.1.0"
+authors = ["lemon-clown"]
+edition = "2018"
+
+[dependencies]
+
+
+[[bin]]
+name = "p1"
+path = "euler/1-50/p1.rs"
