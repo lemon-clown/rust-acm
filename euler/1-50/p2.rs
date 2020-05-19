@@ -19,7 +19,7 @@
 //! # 答案
 //! 4613732
 //!
-fn main () {
+fn main() {
   let max_num = 4000000;
   let mut f1 = 1;
   let mut f2 = 2;
