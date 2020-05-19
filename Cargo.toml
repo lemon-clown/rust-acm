@@ -1,16 +1,16 @@
 [package]
 name = "main"
 version = "0.1.0"
-authors = ["lemon-clown"]
 edition = "2018"
+authors = ["lemon-clown"]
 
 [dependencies]
 
-
+# euler project
 [[bin]]
-name = "p1"
+name = "euler-1"
 path = "euler/1-50/p1.rs"
 
 [[bin]]
-name = "p2"
+name = "euler-2"
 path = "euler/1-50/p2.rs"

@@ -1,1 +1,19 @@
-{}
+{
+  "liveServer.settings.port": 7013,
+  "liveServer.settings.mount": [
+    ["/", "target/doc"],
+    ["/index.html", "target/doc/settings.html"],
+  ],
+  "liveServer.settings.ignoreFiles": [
+    ".DS_Store",
+    ".idea/**",
+    ".vscode/**",
+    "euler/**",
+  ],
+  "remote.SSH.defaultForwardedPorts": [
+    {
+      "localPort": 7013,
+      "remotePort": 7013
+    }
+  ],
+}
