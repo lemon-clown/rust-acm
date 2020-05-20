@@ -4,6 +4,9 @@ version = "0.1.0"
 edition = "2018"
 authors = ["lemon-clown"]
 
+[package.metadata.docs.rs]
+rustdoc-args = [ "--html-in-header", "./script/doc.header.html" ]
+
 [dependencies]
 
 # euler project
