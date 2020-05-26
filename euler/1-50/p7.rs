@@ -17,47 +17,20 @@
 //! 104743
 //!
 
+use rust_acm::algorithm::prime;
+
 fn main() {
   let n = 10001 as usize;
   let mut max_n = (n * 8) as u64;
+
   let primes = loop {
-    let ret = sieve(n, max_n);
+    let ret = prime::sieve_primes(max_n);
     if ret.len() < n {
       max_n *= 2;
       continue;
     }
     break ret
   };
-  let answer = primes[primes.len() - 1];
+  let answer = primes[n - 1];
   println!("{}", answer)
-}
-
-use std::collections::HashSet;
-fn sieve(n: usize, max_n: u64) -> Vec<u64> {
-  let mut primes = Vec::with_capacity(n);
-  let mut non_primes = HashSet::new();
-
-  let mut x: u64 = 2;
-  let mut executed_times = 0;
-  while x <= max_n {
-    if !non_primes.contains(&x) {
-      primes.push(x);
-      if primes.len() >= n {
-        break;
-      }
-    }
-    for e in primes.iter() {
-      if  e * x > max_n  {
-        break;
-      }
-      non_primes.insert(e * x);
-      executed_times += 1;
-      if x % e == 0 {
-        break;
-      }
-    }
-    x += 1;
-  }
-  println!("execCount: {}", executed_times);
-  return primes;
 }
