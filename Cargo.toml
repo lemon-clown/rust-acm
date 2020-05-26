@@ -1,5 +1,5 @@
 [package]
-name = "main"
+name = "rust-acm"
 version = "0.1.0"
 edition = "2018"
 authors = ["lemon-clown"]
