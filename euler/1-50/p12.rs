@@ -45,27 +45,32 @@
 //! # 答案
 //! 76576500
 //!
+
+
+use rust_acm::algorithm::prime;
+
+
 fn main() {
   let mut answer = 0;
   for x in 500.. {
-    let x_factors = prime_factorization(x);
-    let y_factors = prime_factorization(x + 1);
+    let x_factors = prime::calc_factorization(x);
+    let y_factors = prime::calc_factorization(x + 1);
     let x_fac_total = x_factors.iter()
-      .map(|p: &PrimeFactor| -> usize {
-        if p.prime == 2 {
-          p.exponential
+      .map(|p| -> usize {
+        if p.first == 2 {
+          p.second
         } else {
-          p.exponential + 1
+          p.second + 1
         }
       })
       .fold(1usize, |acc, p| acc * p)
       ;
     let y_fac_total = y_factors.iter()
-      .map(|p: &PrimeFactor| -> usize {
-        if p.prime == 2 {
-          p.exponential
+      .map(|p | -> usize {
+        if p.first == 2 {
+          p.second
         } else {
-          p.exponential + 1
+          p.second + 1
         }
       })
       .fold(1usize, |acc, p| acc * p)
@@ -76,33 +81,5 @@ fn main() {
       break;
     }
   }
-  println!("{:?}", answer)
-}
-
-
-#[derive(Debug)]
-struct PrimeFactor {
-  prime: i32,
-  exponential: usize,
-}
-
-
-fn prime_factorization(mut n: i32) -> Vec<PrimeFactor> {
-  let mut ret: Vec<PrimeFactor> = vec![];
-  let square_root_of_n: i32 = (n as f32).sqrt().ceil() as i32 + 1;
-  for x in 2..square_root_of_n {
-    let mut exponential = 0;
-    while n % x == 0 {
-      exponential += 1;
-      n /= x;
-    }
-    if exponential > 0 {
-      let factor = PrimeFactor {
-        prime: x,
-        exponential: exponential,
-      };
-      ret.push(factor);
-    }
-  }
-  return ret;
+  println!("{:#?}", answer)
 }
