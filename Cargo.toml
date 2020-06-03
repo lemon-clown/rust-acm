@@ -57,3 +57,7 @@ path = "euler/1-50/p11.rs"
 [[bin]]
 name = "euler-12"
 path = "euler/1-50/p12.rs"
+
+[[bin]]
+name = "euler-13"
+path = "euler/1-50/p13.rs"
